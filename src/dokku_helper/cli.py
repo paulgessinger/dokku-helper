@@ -28,7 +28,7 @@ def main(envfile):
     value_b64 = base64.b64encode(value.encode("utf8")).decode("utf8")
     # print(value_b64)
 
-    dokku("config:set", "--encoded", app, f"{key}={value_b64}")
+    dokku("config:set", "--encoded", "--no-restart", app, f"{key}={value_b64}")
   
 
 if "__main__" == __name__:
